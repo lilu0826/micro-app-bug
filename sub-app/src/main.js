@@ -1,11 +1,17 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 
-const app = createApp(App)
+import microApp from "@micro-zoe/micro-app";
 
-app.use(router)
+microApp.start({
+    tagName: "micro-app-sub", // 标签名称必须以 `micro-app-` 开头
+});
 
-app.mount('#app')
+const app = createApp(App);
+
+app.use(router);
+
+app.mount("#app");

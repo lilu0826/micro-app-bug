@@ -7,8 +7,8 @@ import HelloWorld from './components/HelloWorld.vue'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/sub-app/">跳转子应用</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/sub-app/">打开sub-app</RouterLink>
+        <RouterLink to="/about">main-app-page</RouterLink>
       </nav>
     </div>
   </header>
