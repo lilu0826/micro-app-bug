@@ -1,80 +1,45 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+
+
+let a = document.createElement('a')
+
+//相对地址
+a.href = '/micro-app'
+console.log('a.href相对地址', a.href)//http://localhost:3001//micro-app
+console.log('a.toString()相对地址',a.toString())// 空
+
+//blob URL
+a.href = window.URL.createObjectURL(new Blob([1, 2, 3]))
+console.log('a.href blob URL', a.href)
+//http://localhost:3001/blob:http://localhost:3000/a94e58e5-842c-47a5-8888-d7e5d28b0775
+console.log('a.toString() blob URL',a.toString())// 空
+
+//dataURL
+let dataUrl = document.createElement("canvas").toDataURL("image/png")
+a.href = dataUrl
+console.log('a.href dataURL', a.href)//http://localhost:3001/data:image/png;base64,iVBORw0...
+console.log('a.toString() dataURL',a.toString())// 空
+
+
+//下载文件
+function handleDownload() {
+  let a = document.createElement('a')
+  let dataUrl = document.createElement("canvas").toDataURL("image/png")
+  a.href = dataUrl
+  a.download = 'test.png'
+  //无效
+  a.click()
+}
+
 </script>
 
 <template>
-  <!-- <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">子应用主页</RouterLink>
-        <RouterLink to="/about">子应用about</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-  <RouterView />
+  <header>
+    子应用（主应用为RC.9）
+    <br>
+    <!-- href属性丢失 -->
+    <a href="https://github.com/micro-zoe/micro-app" target="_blank">href属性丢失，点击无效</a>
+    <br>
+    <button @click="handleDownload">下载文件</button>
+  </header>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>

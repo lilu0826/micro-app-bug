@@ -4,16 +4,15 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/sub-app/">打开sub-app</RouterLink>
-        <RouterLink to="/about">main-app-page</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+  <micro-app
+        name="my-app"
+        url="http://localhost:3001/"
+        router-mode="native"
+        baseroute="/sub-app/"
+        iframe
+        style="display: block;height: 100%;"
+        :data="{ name: '来自基座应用的数据' }"
+    ></micro-app>
 </template>
 
 <style scoped>
