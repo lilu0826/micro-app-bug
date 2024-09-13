@@ -37,9 +37,9 @@ function handleDownload() {
   <header>
     子应用（主应用为RC.9）
     <br>
-    <!-- href属性丢失 -->
+    <!-- href属性丢失（无效） -->
     <a href="https://github.com/micro-zoe/micro-app" target="_blank">href属性丢失，点击无效</a>
     <br>
-    <button @click="handleDownload">下载文件</button>
+    <button @click="handleDownload">下载文件（无效）</button>
   </header>
 </template>
