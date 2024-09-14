@@ -5,8 +5,8 @@ import TheWelcome from '../components/TheWelcome.vue'
 <template>
   <main>
     <!-- <TheWelcome /> -->
-    APP2
-    <micro-app-sub
+    <h1>子应用首页</h1>
+    <!-- <micro-app-sub
         name="my-app234234"
         url="http://localhost:3002/"
         router-mode="pure"
@@ -14,6 +14,6 @@ import TheWelcome from '../components/TheWelcome.vue'
         iframe
         style="display: block; height: 100%"
         :data="{ name: '来自APP2的数据' }"
-    ></micro-app-sub>
+    ></micro-app-sub> -->
   </main>
 </template>

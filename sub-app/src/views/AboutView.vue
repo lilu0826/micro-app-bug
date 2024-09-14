@@ -1,8 +1,8 @@
 <template>
     <div class="about">
-        <h1>App2 {{ msg }}</h1>
+        <h1>关于页面 {{ msg }}</h1>
     </div>
-    <micro-app-sub
+    <!-- <micro-app-sub
         name="my-app234234"
         url="http://localhost:3002/"
         router-mode="pure"
@@ -10,7 +10,7 @@
         iframe
         style="display: block; height: 100%"
         :data="{ name: '来自APP2的数据' }"
-    ></micro-app-sub>
+    ></micro-app-sub> -->
 </template>
 
 <script setup>
@@ -39,13 +39,3 @@ const msg = ''
 // })
 
 </script>
-
-<style>
-@media (min-width: 1024px) {
-    .about {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-    }
-}
-</style>
